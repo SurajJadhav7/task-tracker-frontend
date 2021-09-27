@@ -10,22 +10,22 @@ const getters = {
 
 const actions = {
     async fetchTodos({ commit }) {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/todos');
+        const response = await axios.get('http://localhost:3000/api/v1/todos');
         commit('setTodos', response.data);
     },
     async addTodo({ commit }, title) {
-        const response = await axios.post('https://jsonplaceholder.typicode.com/todos', {
+        const response = await axios.post('http://localhost:3000/api/v1/todos', {
             title,
             completed: false
         });
         commit('newTodo', response.data);
     },
     async deleteTodo({ commit }, id) {
-        await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
+        await axios.delete(`http://localhost:3000/api/v1/todos/${id}`);
         commit('removeTodo', id);
     },
     async filterTodos({ commit }, filter) {
-        const response = await axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=${filter}`)
+        const response = await axios.get(`http://localhost:3000/api/v1/todos?_limit=${filter}`)
         commit('setFilterTodos', response.data);
     },
     async toggleTodo({ commit }, todo) {
@@ -35,7 +35,7 @@ const actions = {
             title: todo.title,
             completed: !todo.completed
         }
-        await axios.put(`https://jsonplaceholder.typicode.com/todos/${todo.id}`, updatedTodo);
+        await axios.put(`http://localhost:3000/api/v1/todos/${todo.id}`, updatedTodo);
         commit('updateTodo', updatedTodo);
     },
 }
