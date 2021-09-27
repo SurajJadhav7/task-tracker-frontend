@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
+      <SearchTodos />
       <AddTodo />
       <FilterTodos />
       <Todos />
@@ -12,6 +13,7 @@
 import Todos from "./components/Todos.vue";
 import AddTodo from "./components/AddTodo.vue";
 import FilterTodos from "./components/FilterTodos.vue";
+import SearchTodos from "./components/SearchTodos.vue";
 
 export default {
   name: "App",
@@ -19,6 +21,7 @@ export default {
     Todos,
     AddTodo,
     FilterTodos,
+    SearchTodos,
   },
 };
 </script>

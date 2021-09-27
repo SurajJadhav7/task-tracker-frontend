@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 const state = {
-    todos: []
+    todos: [],
+    filter: 200,
+    query: ""
 }
 
 const getters = {
@@ -11,6 +13,12 @@ const getters = {
 const actions = {
     async fetchTodos({ commit }) {
         const response = await axios.get('http://localhost:3000/api/v1/todos');
+        commit('setTodos', response.data);
+    },
+    async searchTodos({ commit }, query) {
+        console.log(query);
+        commit('setQuery', query);
+        const response = await axios.get(`http://localhost:3000/api/v1/todos?q=${query}&_limit=${state.filter}`);
         commit('setTodos', response.data);
     },
     async addTodo({ commit }, title) {
@@ -25,7 +33,8 @@ const actions = {
         commit('removeTodo', id);
     },
     async filterTodos({ commit }, filter) {
-        const response = await axios.get(`http://localhost:3000/api/v1/todos?_limit=${filter}`)
+        commit('setFilter', filter);
+        const response = await axios.get(`http://localhost:3000/api/v1/todos?q=${state.query}&_limit=${filter}`)
         commit('setFilterTodos', response.data);
     },
     async toggleTodo({ commit }, todo) {
@@ -56,6 +65,12 @@ const mutations = {
     updateTodo(state, todo) {
         const index = state.todos.findIndex(t => t.id == todo.id);
         state.todos.splice(index, 1, todo);
+    },
+    setFilter(state, filter) {
+        state.filter = filter;
+    },
+    setQuery(state, query) {
+        state.query = query;
     }
 }
 
