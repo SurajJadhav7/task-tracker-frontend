@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Filter Todos</h2>
+    <h4>Tasks Shown</h4>
     <select @change="filterTodos($event.target.value)">
       <option value="200">200</option>
       <option value="100">100</option>
@@ -24,6 +24,10 @@ export default {
 </script>
 
 <style>
+h4 {
+  display: inline;
+  margin-inline-end: 20px;
+}
 select {
   margin-top: 20px;
   padding: 6px;

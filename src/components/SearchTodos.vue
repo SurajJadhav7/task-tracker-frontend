@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h3>Search Todos</h3>
+    <!-- <h3>Search Todos</h3> -->
     <div class="add">
       <input
         type="text"
         v-model="title"
-        placeholder="Search"
+        placeholder="Search Todo"
         @input="searchTodos($event.target.value)"
       />
     </div>
@@ -29,20 +29,18 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+  text-align: center;
+}
 form {
   display: flex;
 }
-input[type="text"] {
-  flex: 10;
+input {
+  flex: 1;
+  width: calc(100% - 20px);
   padding: 10px;
   border: 1px solid #41b883;
   outline: 0;
-}
-input[type="submit"] {
-  flex: 2;
-  background: #41b883;
-  color: #fff;
-  border: 1px #41b883 solid;
-  cursor: pointer;
+  margin-top: 2rem;
 }
 </style>

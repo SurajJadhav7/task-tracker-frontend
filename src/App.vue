@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div class="container">
-      <SearchTodos />
       <AddTodo />
+      <SearchTodos />
       <FilterTodos />
       <Todos />
     </div>

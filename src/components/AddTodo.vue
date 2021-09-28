@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Add Todo</h3>
+    <h3>Tasks Tracker</h3>
     <div class="add">
       <form @submit="onSubmit">
         <input
@@ -8,7 +8,7 @@
           v-model="title"
           placeholder="What needs to be done?"
         />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Add" />
       </form>
     </div>
   </div>
@@ -36,6 +36,9 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+  text-align: center;
+}
 form {
   display: flex;
 }
@@ -44,6 +47,7 @@ input[type="text"] {
   padding: 10px;
   border: 1px solid #41b883;
   outline: 0;
+  height: 30px;
 }
 input[type="submit"] {
   flex: 2;

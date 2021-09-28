@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Todos</h3>
+    <!-- <h3>Todos</h3> -->
     <div class="legend">
       <span>Double click to mark as complete</span>
       <span> <span class="incomplete-box"></span> = Incomplete </span>
@@ -66,6 +66,7 @@ i {
   display: flex;
   justify-content: space-around;
   margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 .complete-box {
   display: inline-block;
